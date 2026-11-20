@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>VAYRO | فايرو — مشوارك يبدأ معنا</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">V</span><span><b>VAYRO</b><small>مشوارك يبدأ معنا</small></span></a>
+    <div class="top-actions"><span class="live-dot"></span><span>الخدمة متاحة على مدار الساعة</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">تنقّل براحة وثقة</p>
+        <h1>مشوارك يبدأ<br><em>مع فايرو</em></h1>
+        <p class="muted">رحلتك القادمة أقرب مما تتوقع. اختر فئة السيارة وأدخل تفاصيل مشوارك.</p>
+        <div class="hero-tags"><span>الأردن</span><span>البحرين</span><span>24/7</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="car">V</div><div class="gold-line"></div></div>
+    </section>
+
+    <nav class="tabs" aria-label="أقسام التطبيق">
+      <button class="tab active" data-view="booking">حجز رحلة</button>
+      <button class="tab" data-view="driver">واجهة السائق</button>
+      <button class="tab" data-view="admin">لوحة الإدارة</button>
+    </nav>
+
+    <section id="booking" class="view active">
+      <div class="section-heading"><div><p class="eyebrow">للركاب</p><h2>احجز مشوارك</h2></div><span class="pill">سهل وسريع</span></div>
+      <div class="booking-grid">
+        <form id="booking-form" class="panel form-panel">
+          <label>الدولة<select id="country"><option value="JO">الأردن — JOD</option><option value="BH">البحرين — BHD</option></select></label>
+          <label>موقع الانطلاق<input id="pickup" required placeholder="مثال: الدوار الرابع، عمّان"></label>
+          <label>الوجهة<input id="destination" required placeholder="إلى أين تريد الذهاب؟"></label>
+          <label>فئة السيارة<select id="vehicle">
+            <option value="economy">اقتصادي</option><option value="business">رجال أعمال</option><option value="vip">VIP</option><option value="family">عائلي — 7 ركاب</option><option value="luxury">سيارات فاخرة</option>
+          </select></label>
+          <div class="two-cols"><label>المسافة التقديرية (كم)<input id="distance" type="number" min="1" value="10" required></label><label>المدة (دقيقة)<input id="duration" type="number" min="1" value="20" required></label></div>
+          <label>طريقة الدفع<select id="payment"><option value="cash">نقداً</option><option value="electronic">دفع إلكتروني (يتطلب ربط بوابة دفع)</option></select></label>
+          <button class="primary" type="submit">احسب السعر واطلب الرحلة <span>←</span></button>
+          <p class="fine">السعر المعروض تقديري للتجربة، ويحتاج ضبط التعرفة النهائية من لوحة الإدارة.</p>
+        </form>
+        <aside class="panel estimate">
+          <div class="estimate-top"><span class="eyebrow">تقدير الرحلة</span><span class="car-icon">✦</span></div>
+          <div class="price" id="price">3.50 <small>JOD</small></div>
+          <p class="muted" id="price-note">يشمل تقدير المسافة والوقت وفئة السيارة</p>
+          <div class="rule"></div>
+          <div class="metric"><span>عمولة المنصة</span><b>15%</b></div>
+          <div class="metric"><span>إرسال الطلب</span><b>أقرب سائق أولاً</b></div>
+          <div class="metric"><span>نطاق البحث</span><b>5 كم</b></div>
+          <div class="gold-note">فايرو — مشوارك يبدأ معنا</div>
+        </aside>
+      </div>
+      <div id="booking-result" class="notice hidden" role="status"></div>
+      <div class="panel recent"><div class="section-heading compact"><h3>رحلاتك التجريبية</h3><span class="muted">محفوظة على هذا الجهاز</span></div><div id="customer-trips" class="empty">لا توجد رحلات بعد.</div></div>
+    </section>
+
+    <section id="driver" class="view">
+      <div class="section-heading"><div><p class="eyebrow">للكباتن</p><h2>مساحة السائق</h2></div><span class="pill">تحكم بوقتك</span></div>
+      <div class="driver-grid">
+        <div class="panel">
+          <h3>حالة التوفر</h3><p class="muted">السائق يحدد بنفسه أوقات اتصاله وانقطاعه عن استقبال الرحلات.</p>
+          <div class="online-row"><span id="driver-status" class="status offline">غير متصل</span><label class="switch"><input id="online-toggle" type="checkbox"><span></span></label></div>
+          <label>اسم السائق<input id="driver-name" placeholder="اسم السائق"></label>
+          <label>رقم المركبة<input id="car-number" placeholder="رقم المركبة"></label>
+          <button id="save-driver" class="secondary">حفظ بيانات السائق</button>
+        </div>
+        <div class="panel">
+          <h3>الطلبات المتاحة</h3><div id="driver-requests" class="empty">لا توجد طلبات جديدة حالياً.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="admin" class="view">
+      <div class="section-heading"><div><p class="eyebrow">إدارة فايرو</p><h2>لوحة التحكم</h2></div><span class="pill">نظرة عامة</span></div>
+      <div class="stats"><div class="panel stat"><small>إجمالي الرحلات</small><b id="stat-trips">0</b></div><div class="panel stat"><small>قيمة الرحلات</small><b id="stat-revenue">0</b></div><div class="panel stat"><small>حصة المنصة (15%)</small><b id="stat-commission">0</b></div></div>
+      <div class="panel admin-panel">
+        <h3>إعدادات التسعير التجريبية</h3>
+        <p class="muted">هذه قيم أولية قابلة للتغيير. يجب اعتماد التعرفة الرسمية لكل بلد قبل الإطلاق.</p>
+        <div class="two-cols"><label>عمولة المنصة %<input id="commission" type="number" min="0" max="100" value="15"></label><label>نطاق البحث كم<input id="radius" type="number" min="1" value="5"></label></div>
+        <button id="save-settings" class="primary">حفظ الإعدادات</button>
+      </div>
+      <div class="panel recent"><h3>سجل الطلبات</h3><div id="admin-trips" class="empty">لا توجد بيانات حتى الآن.</div></div>
+    </section>
+
+    <footer><span>© <span id="year"></span> VAYRO</span><span>تصميم أولي — مشوارك يبدأ معنا</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
